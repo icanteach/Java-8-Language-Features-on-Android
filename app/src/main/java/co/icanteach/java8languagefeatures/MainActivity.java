@@ -9,6 +9,7 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class MainActivity extends AppCompatActivity implements Mathematica {
 
@@ -33,6 +34,16 @@ public class MainActivity extends AppCompatActivity implements Mathematica {
 
         Log.v("TEST", "result : " + multiply(3, 4));
         Log.v("TEST", "result : " + add(3, 4));
+
+
+        Platform platform = new Platform();
+
+        platform.setName("Android");
+        platform.setNumberOfTester(1234);
+
+        Optional<Platform> platformOptional = Optional.of(platform);
+
+        platformOptional.ifPresent(platform1 -> Log.v("TEST", platform1.getName()));
     }
 
     private void submitProduct() {
