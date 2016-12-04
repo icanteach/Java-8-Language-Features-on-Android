@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Mathematica {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,22 @@ public class MainActivity extends AppCompatActivity {
                 .map(String::toUpperCase)
                 .sorted()
                 .forEach(s -> Log.v("TEST", s));
+
+        Log.v("TEST", "result : " + multiply(3, 4));
+        Log.v("TEST", "result : " + add(3, 4));
     }
 
     private void submitProduct() {
 
+    }
+
+    @Override
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    @Override
+    public int multiply(int a, int b) {
+        return 0;
     }
 }
