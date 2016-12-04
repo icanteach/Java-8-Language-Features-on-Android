@@ -21,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
         button.setOnClickListener(view -> submitProduct());
 
+
+        List<String> list =
+                Arrays.asList("a1", "a2", "a3", "b1", "c2", "c1");
+
+        list.stream()
+                .filter(s -> s.startsWith("a"))
+                .map(String::toUpperCase)
+                .sorted()
+                .forEach(s -> Log.v("TEST", s));
     }
 
     private void submitProduct() {
